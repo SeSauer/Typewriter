@@ -31,7 +31,7 @@ void loop(){
     delay(100);
   }
   analogWrite(A5, 0);
-  delay(100);
+  delay(50);
 
   //interpret Signal
   Serial.readBytes(inputBuffer, 2);
@@ -39,7 +39,7 @@ void loop(){
   bits = bits << 8;
   bits += inputBuffer[1];
   setPins(bits);
-  delay(100);              //may need adjustment
+  delay(50);              //may need adjustment
   resetPins();
   //send answer
   Serial.write((byte)1);
