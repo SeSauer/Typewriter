@@ -1,6 +1,8 @@
-from Printer.Connector import Connector
+from Printing.Connector import Connector
 from Core.Letter import Letter
 from Core.KeypressLookup import KeypressLookup
+from Utils.Formatter import BaseFormatter
+import Utils.Utils as Utils
 
 
 class Printer:
@@ -11,15 +13,17 @@ class Printer:
             self.__keypress_lookup = keypress_lookup
         self.__connector: Connector = Connector(device, baudrate)
 
-    def print(self, string: str) -> None:
+    def print(self, string: str, formatter: BaseFormatter) -> None:
+        string = formatter.format(string)
         for char in string:
             letter: Letter = Letter(char)
             try:
                 keypresses = letter.get_keypresses(self.__keypress_lookup)
             except KeyError:
-                print(f"\033[93m No keypress found for {letter.get_str_repr()}, Skipping \033[0m")
+                Utils.log(f"No keypress found for {letter.get_str_repr()}, Skipping", color=Utils.Colors.WARNING)
                 continue
             for keypress in keypresses:
                 self.__connector.write_letter(keypress)
                 self.__connector.read_and_block(log=False)
-        print(f"Finished printing {string}")
+        Utils.log(f"Finished printing {string}", max_length=75)
+

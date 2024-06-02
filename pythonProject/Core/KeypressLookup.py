@@ -1,5 +1,6 @@
 from Core.Keypress import Keypress
 from Core.LookupNew import DEFAULT_KEYS
+import Utils.Utils as Utils
 import re
 
 
@@ -29,4 +30,4 @@ if __name__ == "__main__":
     lookup = KeypressLookup()
     get_keypresses = lookup.get_keypresses("A")
     for keypress in get_keypresses:
-        print(keypress.get_str_repr())
+        Utils.log(keypress.get_str_repr(), 0)

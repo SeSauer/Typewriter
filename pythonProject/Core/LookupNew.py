@@ -83,7 +83,7 @@ DEFAULT_KEYS: dict[str, str] = {
     "Ö": ["CAPS", "ö", "SHIFT"],
     "Ä": ["CAPS", "ä", "SHIFT"],
     "'": ["CAPS", "#", "SHIFT"],
-    "Y": ["CAPS", "y", "SHIFT"],
+    "Y": ["CAPS", "Y", "SHIFT"],
     "X": ["CAPS", "x", "SHIFT"],
     "C": ["CAPS", "c", "SHIFT"],
     "V": ["CAPS", "v", "SHIFT"],
@@ -94,7 +94,7 @@ DEFAULT_KEYS: dict[str, str] = {
     ":": ["CAPS", ".", "SHIFT"],
     "_": ["CAPS", "-", "SHIFT"],
 
-    "@": ["a", "BACK", "O"],
+    "@": ["a", "BACK", "Q"],
 
     " ": ["1000 0000  0000 0010"],
     "\n": ["0100 0000  0000 0010"],
